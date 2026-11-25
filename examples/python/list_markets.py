@@ -57,6 +57,8 @@ def as_list(v):
 def render(text):
     """Turn the search response into readable lines; fall back to the raw text."""
     data = unwrap(text)
+    if isinstance(data, dict) and isinstance(data.get("data"), dict):
+        data = data["data"]  # the server returns {"success": true, "data": {...}}
     if not isinstance(data, dict) or "events" not in data:
         return [text]
     out = []

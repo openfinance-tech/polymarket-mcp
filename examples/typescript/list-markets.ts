@@ -22,7 +22,9 @@ export const list = (v: unknown): string[] => {
 
 // Turn the search response into readable lines. Falls back to the raw text if the shape is unexpected.
 export function render(text: string): string[] {
-  const data = unwrap(text) as { events?: { title?: string; markets?: Record<string, unknown>[] }[] } | null;
+  type Search = { events?: { title?: string; markets?: Record<string, unknown>[] }[] };
+  const raw = unwrap(text) as (Search & { data?: Search }) | null;
+  const data: Search | null = raw?.data ?? raw; // the server returns {"success": true, "data": {...}}
   if (!data?.events) return [text];
   const out: string[] = [];
   for (const ev of data.events.slice(0, 5)) {
