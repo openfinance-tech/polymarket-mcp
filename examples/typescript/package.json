@@ -1,0 +1,15 @@
+{
+  "name": "openfinance-polymarket-example",
+  "private": true,
+  "type": "module",
+  "description": "Read-only example: search Polymarket through the OpenFinance MCP server",
+  "scripts": { "start": "tsx list-markets.ts", "typecheck": "tsc --noEmit --module nodenext --moduleResolution nodenext --target es2022 --strict --skipLibCheck list-markets.ts" },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

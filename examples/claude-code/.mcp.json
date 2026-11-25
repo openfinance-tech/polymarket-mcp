@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "openfinance-tech": {
+      "type": "http",
+      "url": "https://api.openfinance.tech/agent/mcp",
+      "headers": { "x-api-key": "${OPENFINANCE_API_KEY}" }
+    }
+  }
+}

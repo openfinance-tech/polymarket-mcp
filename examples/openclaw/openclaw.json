@@ -1,0 +1,10 @@
+{
+  "mcp": {
+    "servers": {
+      "openfinance-tech": {
+        "url": "https://api.openfinance.tech/agent/mcp",
+        "headers": { "x-api-key": "open_..." }
+      }
+    }
+  }
+}

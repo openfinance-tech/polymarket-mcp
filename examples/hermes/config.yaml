@@ -1,0 +1,6 @@
+# Add to ~/.hermes/config.yaml, then run /reload-mcp or restart the agent.
+mcp_servers:
+  openfinance-tech:
+    url: "https://api.openfinance.tech/agent/mcp"
+    headers:
+      x-api-key: "open_..."

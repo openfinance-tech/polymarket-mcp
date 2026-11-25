@@ -1,0 +1,19 @@
+# Polymarket for AI Agents (OpenFinance)
+
+> Independent; not affiliated with Polymarket. Research and trade Polymarket from Claude, ChatGPT, Cursor or any MCP client through OpenFinance's hosted MCP server at https://api.openfinance.tech/agent/mcp. OpenFinance handles sign-in, wallets and Polymarket setup: no private key in your config, nothing to install.
+
+- One step: `npx skills add openfinance-tech/skills -y`, or add the MCP URL https://api.openfinance.tech/agent/mcp (Streamable HTTP) to any AI app
+- Auth: OAuth 2.1, or header x-api-key: open_... (key from openfinance.tech, sidebar, External AI)
+- Tool: polymarket, with an action parameter (32 actions: search, odds, order books, leaderboards, any wallet's positions and P&L, limit/market/batch orders, cancel, redeem, convert USDC.e, cash out)
+- Money: pUSD on Polygon in the user's Polymarket deposit wallet. Fund with pUSD, from the user's other wallets on 40+ chains or Solana, or by debit card.
+- Fee: 0.25% per Polymarket trade, on top of Polymarket's fees. No KYC on OpenFinance.
+- Works in: Claude (web, desktop, mobile), ChatGPT, Grok, Meta Muse, OpenClaw, Hermes Agent, Cursor, VS Code, Codex, Gemini CLI, Windsurf, any MCP client.
+- Safety: the agent confirms every order with the user first. Funds only move between the user's own wallets; sending to anyone else needs a sign-in on openfinance.tech and an authenticator code. No server-side trade limits.
+- Not supported: Kalshi.
+
+## Docs
+
+- [README](https://github.com/openfinance-tech/polymarket-mcp/blob/main/README.md): setup, funding, tools, safety, FAQ
+- [AGENTS.md](https://github.com/openfinance-tech/polymarket-mcp/blob/main/AGENTS.md): action routing and rules for agents
+- [OpenFinance MCP server](https://github.com/openfinance-tech/mcp): every market and client
+- [How to trade Polymarket with Claude](https://openfinance.tech/agents/trade-polymarket-with-claude)

@@ -1,0 +1,17 @@
+{
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "openfinance-api-key",
+      "description": "OpenFinance API key",
+      "password": true
+    }
+  ],
+  "servers": {
+    "openfinance-tech": {
+      "type": "http",
+      "url": "https://api.openfinance.tech/agent/mcp",
+      "headers": { "x-api-key": "${input:openfinance-api-key}" }
+    }
+  }
+}

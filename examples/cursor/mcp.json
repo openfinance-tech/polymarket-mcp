@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "openfinance-tech": {
+      "url": "https://api.openfinance.tech/agent/mcp"
+    }
+  }
+}

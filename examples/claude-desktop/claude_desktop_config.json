@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "openfinance-tech": {
+      "command": "npx",
+      "args": [
+        "-y", "mcp-remote",
+        "https://api.openfinance.tech/agent/mcp",
+        "--header", "x-api-key:${OPENFINANCE_API_KEY}"
+      ],
+      "env": { "OPENFINANCE_API_KEY": "open_..." }
+    }
+  }
+}

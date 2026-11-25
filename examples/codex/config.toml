@@ -1,0 +1,4 @@
+# Add to ~/.codex/config.toml. The key is read from your environment.
+[mcp_servers.openfinance-tech]
+url = "https://api.openfinance.tech/agent/mcp"
+env_http_headers = { "x-api-key" = "OPENFINANCE_API_KEY" }
