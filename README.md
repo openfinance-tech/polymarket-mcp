@@ -2,7 +2,7 @@
 
 <a href="https://openfinance.tech/agents/trade-polymarket-with-claude"><img src="./assets/banner.jpg" alt="Polymarket for AI Agents: research and trade prediction markets from Claude, ChatGPT, Cursor or any MCP client, with one hosted URL and no private key in your config." width="100%" /></a>
 
-# Polymarket for AI Agents
+# Polymarket MCP Server for AI Agents
 
 **Research and trade Polymarket from Claude, ChatGPT, Cursor or any AI agent, through one hosted MCP server.**<br />
 OpenFinance handles the sign-in, the wallet and the Polymarket plumbing. No private key in your config, nothing to install.
@@ -117,7 +117,7 @@ Sign in with OpenFinance when asked, then ask: *"What are the Polymarket odds on
 | Hyperliquid perps (including stock and FX perps) and memecoins in the same account | ❌ | ✅ |
 
 > [!NOTE]
-> **Where others are ahead.** A local open-source server keeps your key on your own machine, and you can read its code and browse markets without an account. OpenFinance is hosted and closed source, signs on its servers, and has one key per account with no read-only scope yet. It also doesn't support Kalshi, doesn't enforce trade-size limits on the server, and charges 0.25% per Polymarket trade on top of Polymarket's fees. Paper trading works by asking your agent (see [Paper trading](#paper-trading)).
+> **Where others are ahead.** A local open-source server keeps your key on your own machine, and you can read its code and browse markets without an account. OpenFinance is hosted and closed source, signs on its servers, and has one key per account with no read-only scope yet. It also doesn't support Kalshi, doesn't enforce trade-size limits on the server, and charges 0.25% per Polymarket trade on top of Polymarket's fees. Your agent can build a paper-trading system for you (see [Paper trading](#paper-trading)).
 >
 > <sub>"Typical open-source local server" is based on the READMEs of popular open-source Polymarket MCP servers, checked in November 2026.</sub>
 
@@ -146,10 +146,9 @@ flowchart LR
 
 **1. Create your account.** Sign in at [openfinance.tech](https://openfinance.tech). Your wallets are created for you.
 
-**2. Add the server to your AI app.**
+**2. Add the server to your AI app or agent.** Pick yours below; each has a [full guide](./docs/).
 
-<details open>
-<summary><b>🟠 Claude (web, desktop and mobile)</b></summary>
+### 🟠 Trade Polymarket with Claude (web, desktop and mobile)
 
 1. On claude.ai, open **Settings → Connectors** and click **Add custom connector**.
 2. Name: `OpenFinance`. URL: `https://api.openfinance.tech/agent/mcp`.
@@ -158,10 +157,9 @@ flowchart LR
 
 The connector then works in the Claude web, desktop and mobile apps. Custom connectors are available on Claude's paid plans.
 
-</details>
+[Full Claude guide →](./docs/claude.md)
 
-<details>
-<summary><b>🟢 ChatGPT</b></summary>
+### 🟢 Trade Polymarket with ChatGPT
 
 1. Open **Settings → Apps & Connectors**. If you don't see **Create**, turn on **Developer mode** under **Advanced settings**.
 2. Click **Create**. Name: `OpenFinance`. URL: `https://api.openfinance.tech/agent/mcp`. Authentication: **OAuth**.
@@ -169,10 +167,9 @@ The connector then works in the Claude web, desktop and mobile apps. Custom conn
 
 Custom connectors need a ChatGPT plan that supports them (Plus, Pro, Business, Enterprise or Edu).
 
-</details>
+[Full ChatGPT guide →](./docs/chatgpt.md)
 
-<details>
-<summary><b>⌨️ Claude Code</b></summary>
+### ⌨️ Trade Polymarket with Claude Code
 
 ```bash
 claude mcp add --transport http openfinance-tech https://api.openfinance.tech/agent/mcp
@@ -180,19 +177,17 @@ claude mcp add --transport http openfinance-tech https://api.openfinance.tech/ag
 
 Run `/mcp`, choose **openfinance-tech** and select **Authenticate**. For an API key instead, use [`examples/claude-code/.mcp.json`](./examples/claude-code/.mcp.json).
 
-</details>
+[Full Claude Code guide →](./docs/claude-code.md)
 
-<details>
-<summary><b>⚫ Cursor</b></summary>
+### ⚫ Trade Polymarket with Cursor
 
 <a href="https://cursor.com/en/install-mcp?name=openfinance-tech&config=eyJ1cmwiOiJodHRwczovL2FwaS5vcGVuZmluYW5jZS50ZWNoL2FnZW50L21jcCJ9"><img alt="Add to Cursor" src="https://cursor.com/deeplink/mcp-install-dark.svg" height="32" /></a>
 
 Or copy [`examples/cursor/mcp.json`](./examples/cursor/mcp.json) to `~/.cursor/mcp.json`. Cursor shows **Needs login**; click it to sign in.
 
-</details>
+[Full Cursor guide →](./docs/cursor.md)
 
-<details>
-<summary><b>✖️ Grok (grok.com and Grok CLI)</b></summary>
+### ✖️ Trade Polymarket with Grok (grok.com and Grok CLI)
 
 1. Open **grok.com/connectors**, click **New Connector**, then **Custom**.
 2. Name it `OpenFinance`, paste `https://api.openfinance.tech/agent/mcp` and complete the sign-in.
@@ -205,10 +200,9 @@ grok mcp add --transport http openfinance-tech https://api.openfinance.tech/agen
   --header "x-api-key: ${OPENFINANCE_API_KEY}"
 ```
 
-</details>
+[Full Grok guide →](./docs/grok.md)
 
-<details>
-<summary><b>🔵 Meta Muse</b></summary>
+### 🔵 Trade Polymarket with Meta Muse
 
 1. In Muse (app, web or WhatsApp), start a new chat.
 2. Add a custom connector named `OpenFinance` for `https://api.openfinance.tech/agent/mcp` (remote streamable HTTP), or install the skill file `https://openfinance.tech/skill.md`.
@@ -217,10 +211,9 @@ grok mcp add --transport http openfinance-tech https://api.openfinance.tech/agen
 
 Meta doesn't review custom connectors you add yourself, and they still work.
 
-</details>
+[Full Meta Muse guide →](./docs/muse.md)
 
-<details>
-<summary><b>🦞 OpenClaw</b></summary>
+### 🦞 Trade Polymarket with OpenClaw
 
 ```bash
 openclaw mcp add openfinance-tech \
@@ -231,10 +224,9 @@ openclaw mcp doctor openfinance-tech --probe
 
 OpenClaw treats remote servers as SSE unless you set `streamable-http`, so keep that flag. To use an API key, add it as a header in the Control UI's config editor with a `${OPENFINANCE_API_KEY}` reference, or copy [`examples/openclaw/openclaw.json`](./examples/openclaw/openclaw.json) into `~/.openclaw/openclaw.json` (servers sit under `mcp.servers`).
 
-</details>
+[Full OpenClaw guide →](./docs/openclaw.md)
 
-<details>
-<summary><b>🪽 Hermes Agent</b></summary>
+### 🪽 Trade Polymarket with Hermes Agent
 
 ```bash
 hermes mcp add openfinance-tech --url https://api.openfinance.tech/agent/mcp
@@ -242,14 +234,21 @@ hermes mcp add openfinance-tech --url https://api.openfinance.tech/agent/mcp
 
 Or add it to `~/.hermes/config.yaml` ([`examples/hermes/config.yaml`](./examples/hermes/config.yaml)), then run `/reload-mcp` or restart the agent.
 
-</details>
+[Full Hermes Agent guide →](./docs/hermes-agent.md)
 
-<details>
-<summary><b>🔷 VS Code, Codex, Claude Desktop with a key, and others</b></summary>
+### 🧠 Trade Polymarket with Codex
+
+```bash
+codex mcp add openfinance-tech --url https://api.openfinance.tech/agent/mcp
+```
+
+If Codex asks you to sign in, run `codex mcp login openfinance-tech`. For an API key, use [`examples/codex/config.toml`](./examples/codex/config.toml). Run `/mcp` in Codex to check the server is connected.
+
+[Full Codex guide →](./docs/codex.md)
+
+### 🔷 VS Code, Claude Desktop with a key, and other MCP clients
 
 Ready-to-copy configs are in [`examples/`](./examples). Every client, with OAuth and API-key options, is in the [OpenFinance MCP setup guide](https://github.com/openfinance-tech/mcp#install-in-your-ai-client).
-
-</details>
 
 **3. Ask.**
 
@@ -353,10 +352,10 @@ Cash out $50 of pUSD to my USDC on Base.
 ## 🧪 Paper trading
 
 > [!TIP]
-> Your agent can paper-trade for you. Read-only actions don't move money, so it can research and track a paper portfolio safely. Ask Claude, ChatGPT or Codex:
+> OpenFinance has no built-in paper-trading switch, but your agent can build a paper-trading system for you, and you can use that before trading live. Read-only actions don't move money, so it can track a paper portfolio on live prices safely. Ask Claude, ChatGPT or Codex:
 
 ```text
-Paper-trade Polymarket for me. Use live prices from OpenFinance, keep a ledger of every bet you'd place and its result, and don't place any real order until I say "go live".
+Build me a paper-trading system for Polymarket. Use live prices from OpenFinance, keep a ledger of every bet I'd place and its result, and don't place any real order until I say "go live".
 ```
 
 ---

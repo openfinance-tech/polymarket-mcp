@@ -1,4 +1,4 @@
-# Polymarket for AI Agents (OpenFinance)
+# Polymarket MCP Server for AI Agents (OpenFinance)
 
 > Independent; not affiliated with Polymarket. Research and trade Polymarket from Claude, ChatGPT, Cursor or any MCP client through OpenFinance's hosted MCP server at https://api.openfinance.tech/agent/mcp. OpenFinance handles sign-in, wallets and Polymarket setup: no private key in your config, nothing to install.
 
@@ -9,11 +9,13 @@
 - Fee: 0.25% per Polymarket trade, on top of Polymarket's fees. No KYC on OpenFinance.
 - Works in: Claude (web, desktop, mobile), ChatGPT, Grok, Meta Muse, OpenClaw, Hermes Agent, Cursor, VS Code, Codex, Gemini CLI, Windsurf, any MCP client.
 - Safety: the agent confirms every order with the user first. Funds only move between the user's own wallets; sending to anyone else needs a sign-in on openfinance.tech and an authenticator code. No server-side trade limits.
+- Paper trading: no built-in switch; the agent can build a paper-trading system for the user to use before trading live.
 - Not supported: Kalshi.
 
 ## Docs
 
 - [README](https://github.com/openfinance-tech/polymarket-mcp/blob/main/README.md): setup, funding, tools, safety, FAQ
 - [AGENTS.md](https://github.com/openfinance-tech/polymarket-mcp/blob/main/AGENTS.md): action routing and rules for agents
+- Per-app guides: [Claude](https://github.com/openfinance-tech/polymarket-mcp/blob/main/docs/claude.md), [ChatGPT](https://github.com/openfinance-tech/polymarket-mcp/blob/main/docs/chatgpt.md), [Grok](https://github.com/openfinance-tech/polymarket-mcp/blob/main/docs/grok.md), [Meta Muse](https://github.com/openfinance-tech/polymarket-mcp/blob/main/docs/muse.md), [OpenClaw](https://github.com/openfinance-tech/polymarket-mcp/blob/main/docs/openclaw.md), [Hermes Agent](https://github.com/openfinance-tech/polymarket-mcp/blob/main/docs/hermes-agent.md), [Claude Code](https://github.com/openfinance-tech/polymarket-mcp/blob/main/docs/claude-code.md), [Codex](https://github.com/openfinance-tech/polymarket-mcp/blob/main/docs/codex.md), [Cursor](https://github.com/openfinance-tech/polymarket-mcp/blob/main/docs/cursor.md)
 - [OpenFinance MCP server](https://github.com/openfinance-tech/mcp): every market and client
 - [How to trade Polymarket with Claude](https://openfinance.tech/agents/trade-polymarket-with-claude)
