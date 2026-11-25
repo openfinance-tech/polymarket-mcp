@@ -3,7 +3,10 @@
     "servers": {
       "openfinance-tech": {
         "url": "https://api.openfinance.tech/agent/mcp",
-        "headers": { "x-api-key": "open_..." }
+        "transport": "streamable-http",
+        "headers": {
+          "x-api-key": "${OPENFINANCE_API_KEY}"
+        }
       }
     }
   }

@@ -222,20 +222,14 @@ Meta doesn't review custom connectors you add yourself, and they still work.
 <details>
 <summary><b>🦞 OpenClaw</b></summary>
 
-Add to `~/.openclaw/openclaw.json` (note the nested `mcp.servers` key), or copy [`examples/openclaw/openclaw.json`](./examples/openclaw/openclaw.json):
-
-```json
-{
-  "mcp": {
-    "servers": {
-      "openfinance-tech": {
-        "url": "https://api.openfinance.tech/agent/mcp",
-        "headers": { "x-api-key": "open_..." }
-      }
-    }
-  }
-}
+```bash
+openclaw mcp add openfinance-tech \
+  --url https://api.openfinance.tech/agent/mcp \
+  --transport streamable-http
+openclaw mcp doctor openfinance-tech --probe
 ```
+
+OpenClaw treats remote servers as SSE unless you set `streamable-http`, so keep that flag. To use an API key, add it as a header in the Control UI's config editor with a `${OPENFINANCE_API_KEY}` reference, or copy [`examples/openclaw/openclaw.json`](./examples/openclaw/openclaw.json) into `~/.openclaw/openclaw.json` (servers sit under `mcp.servers`).
 
 </details>
 
@@ -373,7 +367,7 @@ Paper-trade Polymarket for me. Use live prices from OpenFinance, keep a ledger o
 
 | | |
 |:---:|---|
-| ✅ | **It confirms every order with you first.** It shows a summary and waits for your go-ahead, such as replying "confirm". Keep your AI app's tool-approval prompts on as a second check. |
+| ✅ | **Your agent confirms every order with you first.** It shows a summary and waits for your go-ahead, such as replying "confirm". That's the agent's behaviour, not a server block, so keep your AI app's tool-approval prompts on as a second check. |
 | 🔒 | **It can move funds only between your own wallets.** Cashing out and bridging go to your own addresses. Sending to anyone else needs your sign-in on openfinance.tech and a code from your authenticator app. |
 | ⚠️ | **It can still trade.** A bad trade can lose money, and there are no server-side trade limits. Fund only what you're willing to risk. |
 | 🔑 | **Your wallets are yours.** Export the private keys from Settings → Export Keys, with a code from your authenticator app. |
